@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>stereovision css 1.0</title>
+    <style>
+        body{
+            margin:0;
+            width:100%;
+            height:auto;
+        }
+        a{
+            font-weight:bold;
+            text-decoration:none;
+            color:crimson;
+        }
+        a:link, a:visited, a:active{
+            font-weight:bold;
+            text-decoration:none;
+            color:crimson;
+        }
+        a:hover{
+            color:gold;
+        }
+        #view{
+            position:absolute;
+            width:100%;
+            height:100%;
+            margin:auto;
+    
+        }
+        #left, #right{
+            margin:0;
+            padding:0;
+            width:50%;
+            height:100%;
+        }
+        #left{
+            position:absolute;
+            left:0;
+            background:red url('img/steamwhistle-left.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        #right{
+            position:absolute;
+            right:0;
+            background: blue url('img/steamwhistle-right.jpg') no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="view">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+</body>
+</html>
