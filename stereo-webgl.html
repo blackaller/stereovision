@@ -54,14 +54,14 @@ camera = new THREE.PerspectiveCamera( 24, window.innerWidth / window.innerHeight
 
 
 
-textureLeft = THREE.ImageUtils.loadTexture( "textures/eddo-left.jpg" );
+textureLeft = THREE.ImageUtils.loadTexture( "textures/amigo-left.jpg" );
 textureLeft.minFilter = THREE.LinearFilter;
 textureLeft.format = THREE.RGBFormat;
 textureLeft.generateMipmaps = false;
 textureLeft.wrapS = THREE.ClampToEdgeWrapping;
 textureLeft.wrapT = THREE.ClampToEdgeWrapping;
 
-textureRight = THREE.ImageUtils.loadTexture( "textures/eddo-right.jpg" );
+textureRight = THREE.ImageUtils.loadTexture( "textures/amigo-right.jpg" );
 textureRight.minFilter = THREE.LinearFilter;
 textureRight.format = THREE.RGBFormat;
 textureRight.generateMipmaps = false;
@@ -73,7 +73,7 @@ sceneLeft = new THREE.Scene();
 //var geometry = new THREE.SphereGeometry( 500, 60, 40 );
 // var geometry = new THREE.BoxGeometry( 1000, 1000, 0 );
 
-var geometry = new THREE.SphereGeometry(48000, 24, 24, 	1, 1, 0.9, 1);
+var geometry = new THREE.SphereGeometry(48000, 24, 24, 	Math.PI / 2, Math.PI / 3, 0.9, Math.PI / 3);
 
 geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
 
@@ -108,7 +108,7 @@ sceneRight = new THREE.Scene();
 
 //var geometry = new THREE.BoxGeometry( 1000, 1000, 0 );
 
-var geometry = new THREE.SphereGeometry(48000, 24, 24, 	1, 1, 0.9, 1);
+var geometry = new THREE.SphereGeometry(48000, 24, 24, 	Math.PI / 2, Math.PI / 3, 0.9, Math.PI / 3);
 
 geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
 /*

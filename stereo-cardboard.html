@@ -47,13 +47,13 @@
       sceneLeft = new THREE.Scene();
       sceneRight = new THREE.Scene();
 
-      camera = new THREE.PerspectiveCamera( 54, window.innerWidth / window.innerHeight, 1, 80000 );
+      camera = new THREE.PerspectiveCamera( 64, window.innerWidth / window.innerHeight, 1, 80000 );
       camera.position.set(0, 10, 0);
       sceneLeft.add(camera);
 
       controls = new THREE.OrbitControls(camera, element);
-      controls.rotateUp(-Math.PI / 16);
-      controls.rotateLeft(Math.PI);
+      controls.rotateUp(-Math.PI / 28);
+      controls.rotateLeft(2 / 3 * Math.PI);
       controls.target.set(
         camera.position.x + 0.1,
         camera.position.y,
@@ -91,7 +91,7 @@
 
       // left
 
-      var geometry = new THREE.SphereGeometry(48000, 24, 24,  1, 1, 0.9, 1);
+      var geometry = new THREE.SphereGeometry(48000, 24, 24,  0, Math.PI / 3, 1, Math.PI / 3);
 
       geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
 
@@ -105,7 +105,7 @@
 
       // right
 
-      var geometry = new THREE.SphereGeometry(48000, 24, 24,  1, 1, 0.9, 1);
+      var geometry = new THREE.SphereGeometry(48000, 24, 24,  0, Math.PI / 3, 1, Math.PI / 3);
 
       geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
 
