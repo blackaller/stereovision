@@ -4,8 +4,8 @@
  * @authod arodic / http://aleksandarrodic.com/
  */
 /**
- * Edited for stereoscopic textures by blackaller -untested
- * Now takes Left/Right scene parameters
+ * Edited for stereoscopic textures / untested
+ * Now takes sceneLeft, sceneRight  parameters
  */
 
 THREE.StereoEffect = function ( renderer ) {
