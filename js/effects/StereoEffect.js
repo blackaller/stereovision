@@ -4,8 +4,8 @@
  * @authod arodic / http://aleksandarrodic.com/
  */
 /**
- * Edited for stereoscopic textures by blackaller
- * Now takes Left / Right scene parameters
+ * Edited for stereoscopic textures by blackaller -untested
+ * Now takes Left/Right scene parameters
  */
 
 THREE.StereoEffect = function ( renderer ) {
@@ -40,7 +40,7 @@ THREE.StereoEffect = function ( renderer ) {
 
 	this.render = function ( sceneLeft, sceneRight, camera ) {
 
-		//scene.updateMatrixWorld(); // ???????
+		//scene.updateMatrixWorld(); // ??????? what am I doing?
 
 		if ( camera.parent === undefined ) camera.updateMatrixWorld();
 	

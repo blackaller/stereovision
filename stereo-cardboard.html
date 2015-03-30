@@ -27,7 +27,7 @@
   <script src="js/controls/OrbitControls.js"></script>
 
   <script>
-    var camera, scene, sceneLeft, sceneRight, renderer;
+    var camera, sceneLeft, sceneRight, renderer;
     var effect, controls;
     var element, container;
 
@@ -44,14 +44,11 @@
 
       effect = new THREE.StereoEffect(renderer);
 
-      //scene = new THREE.Scene();
       sceneLeft = new THREE.Scene();
       sceneRight = new THREE.Scene();
 
-      //camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
       camera = new THREE.PerspectiveCamera( 54, window.innerWidth / window.innerHeight, 1, 80000 );
       camera.position.set(0, 10, 0);
-      //scene.add(camera);
       sceneLeft.add(camera);
 
       controls = new THREE.OrbitControls(camera, element);
@@ -81,53 +78,43 @@
       window.addEventListener('deviceorientation', setOrientationControls, true);
 
       textureLeft = THREE.ImageUtils.loadTexture( "textures/amigo-left.jpg" );
-textureLeft.minFilter = THREE.LinearFilter;
-textureLeft.format = THREE.RGBFormat;
-textureLeft.generateMipmaps = false;
-textureLeft.wrapS = THREE.ClampToEdgeWrapping;
-textureLeft.wrapT = THREE.ClampToEdgeWrapping;
+      textureLeft.minFilter = THREE.LinearFilter;
+      textureLeft.format = THREE.RGBFormat;
+      textureLeft.generateMipmaps = false;
+      textureLeft.wrapS = THREE.ClampToEdgeWrapping;
+      textureLeft.wrapT = THREE.ClampToEdgeWrapping;
 
-textureRight = THREE.ImageUtils.loadTexture( "textures/amigo-right.jpg" );
-textureRight.minFilter = THREE.LinearFilter;
-textureRight.format = THREE.RGBFormat;
-textureRight.generateMipmaps = false;
+      textureRight = THREE.ImageUtils.loadTexture( "textures/amigo-right.jpg" );
+      textureRight.minFilter = THREE.LinearFilter;
+      textureRight.format = THREE.RGBFormat;
+      textureRight.generateMipmaps = false;
 
-// left
+      // left
 
-//sceneLeft = new THREE.Scene();
+      var geometry = new THREE.SphereGeometry(48000, 24, 24,  1, 1, 0.9, 1);
 
-var geometry = new THREE.SphereGeometry(48000, 24, 24,  1, 1, 0.9, 1);
+      geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
 
-geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
+      var material = new THREE.MeshBasicMaterial( { map: textureLeft } );
 
-var material = new THREE.MeshBasicMaterial( { map: textureLeft } );
+      var mesh = new THREE.Mesh( geometry, material );
 
-var mesh = new THREE.Mesh( geometry, material );
+      mesh.rotation.y = - Math.PI / 2;
+      mesh.position.z = -10000;
+      sceneLeft.add( mesh );
 
-mesh.rotation.y = - Math.PI / 2;
-mesh.position.z = -10000;
-sceneLeft.add( mesh );
+      // right
 
-// right
+      var geometry = new THREE.SphereGeometry(48000, 24, 24,  1, 1, 0.9, 1);
 
-//sceneRight = new THREE.Scene();
+      geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
 
-var geometry = new THREE.SphereGeometry(48000, 24, 24,  1, 1, 0.9, 1);
+      var material = new THREE.MeshBasicMaterial( { map: textureRight } );
 
-geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
-
-var material = new THREE.MeshBasicMaterial( { map: textureRight } );
-
-var mesh = new THREE.Mesh( geometry, material );
-mesh.rotation.y = - Math.PI / 2;
-mesh.position.z = -10000;
-sceneRight.add( mesh );
-
-
-
-
-
-
+      var mesh = new THREE.Mesh( geometry, material );
+      mesh.rotation.y = - Math.PI / 2;
+      mesh.position.z = -10000;
+      sceneRight.add( mesh );
 
       window.addEventListener('resize', resize, false);
       setTimeout(resize, 1);
