@@ -2,8 +2,7 @@
  * @author alteredq / http://alteredqualia.com/
  * @authod mrdoob / http://mrdoob.com/
  * @authod arodic / http://aleksandarrodic.com/
- */
-/**
+ 
  * Edited for stereoscopic textures / untested
  * Now takes sceneLeft, sceneRight  parameters
  */
